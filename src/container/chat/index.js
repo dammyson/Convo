@@ -139,6 +139,7 @@ const Chat = ({ route, navigation }) => {
                 numberOfLines={10}
                 inputStyle={styles.input}
                 value={msgValue}
+                onSubmitEditing={()=>  handleSend()}
                 onChangeText={(text) => handleOnChange(text)}
               />
               <View style={styles.sendBtnContainer}>

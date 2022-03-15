@@ -23,7 +23,7 @@ function NavContainer() {
   return (
     <NavigationContainer linking={linking}>
       <Stack.Navigator
-        initialRouteName="PhoneAuthScreen"
+        initialRouteName="Splash"
         screenOptions={{
           headerShown: true,
           headerStyle: { backgroundColor: color.DARK_GRAY },

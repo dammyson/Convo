@@ -24,6 +24,7 @@ export default ({ navigation }) => {
   const [getScrollPosition, setScrollPosition] = useState(0);
   const [allUsers, setAllUsers] = useState([]);
   const { profileImg, name } = userDetail;
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -54,14 +55,16 @@ export default ({ navigation }) => {
   }, [navigation]);
 
   useEffect(() => {
-    dispatchLoaderAction({
-      type: LOADING_START,
-    });
+    // dispatchLoaderAction({
+    //   type: LOADING_START,
+    // });
     try {
+      console.warn("Hate")
       firebase
         .database()
         .ref("users")
         .on("value", (dataSnapshot) => {
+          console.warn(dataSnapshot)
           let users = [];
           let currentUser = {
             id: "",
@@ -86,8 +89,10 @@ export default ({ navigation }) => {
           dispatchLoaderAction({
             type: LOADING_STOP,
           });
+
         });
     } catch (error) {
+      console.warn(error)
       alert(error);
       dispatchLoaderAction({
         type: LOADING_STOP,
